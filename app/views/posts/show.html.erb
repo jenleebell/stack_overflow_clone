@@ -1,4 +1,4 @@
-<h1><%= @post.title %></h1>
+<h1><%= @post.votes %><%= link_to content_tag(:span, "", class:"glyphicon glyphicon-arrow-up"), edit_post_path(@post, upvote:true) %>   <%= @post.title %></h1>
 
 <%= @post.content %><br>
 

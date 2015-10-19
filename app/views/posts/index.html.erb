@@ -1,7 +1,21 @@
-<h1>Posts</h1>
-
+<h1>Top Questions</h1>
+<br>
 <% @posts.each do |post| %>
-  <%= link_to post.title, post_path(post) %><br>
+<div class="col-md-1">
+  <%= post.votes %>
+  <br>
+  <p>Votes</p>
+</div>
+<div class="col-md-1">
+ <%= post.number_of_comments %>
+ <br>
+ <p>Comments</p>
+ </div>
+ <div class="col-md-10">
+  <%= link_to post.title, post_path(post) %>
+  <br>
+  <p>Asked by <%= User.find(post.user_id).email %></p>
+</div>
 <% end %>
 
 <br><br>
