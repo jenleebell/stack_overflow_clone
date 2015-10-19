@@ -12,7 +12,7 @@
  <span class="little-description">Comments</span>
  </div>
  <div class="col-md-10">
-  <%= link_to post.title, post_path(post) %>
+  <span class="index-post-title"><%= link_to post.title, post_path(post) %></span>
   <br>
   <p>Asked by <%= User.find(post.user_id).username %></p>
 </div>
