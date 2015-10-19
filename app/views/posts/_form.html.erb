@@ -1,7 +1,9 @@
 <%= form_for @post do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-  <%= f.label :content %>
-  <%= f.text_area :content, rows: '10' %>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_area :content, rows: '10', class: "form-control" %>
+  </div>
   <%= f.submit %>
 <% end %>

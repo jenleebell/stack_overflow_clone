@@ -7,8 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">StackOverclone</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Ask a Question", new_post_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li><a href="#"><%= current_user.email %></a></li>
+        <li><%= link_to "Log Out", session_path("current"), method: "delete" %></li>
+        <% else %>
 
-<%= yield %>
+        <li><%= link_to "Sign Up", new_user_path %></li>
+          <li><%= link_to "Login", new_session_path %></li>
 
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <%= yield %>
+</div>
 </body>
 </html>
