@@ -1,0 +1,8 @@
+<h2>Welcome <%= @user.username %></h2>
+<h4>Current email: <%= @user.email %></h4>
+<br>
+<h4>All your questions:</h4>
+
+<% @user.posts.each do |post| %>
+<%= link_to post.title, post_path(post) %>
+<% end %>

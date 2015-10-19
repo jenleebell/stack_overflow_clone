@@ -1,20 +1,20 @@
-<h1>Top Questions</h1>
+<h2>Top Questions</h2>
 <br>
 <% @posts.each do |post| %>
 <div class="col-md-1">
   <%= post.votes %>
   <br>
-  <p>Votes</p>
+  <span class="little-description">Votes</span>
 </div>
 <div class="col-md-1">
  <%= post.number_of_comments %>
  <br>
- <p>Comments</p>
+ <span class="little-description">Comments</span>
  </div>
  <div class="col-md-10">
   <%= link_to post.title, post_path(post) %>
   <br>
-  <p>Asked by <%= User.find(post.user_id).email %></p>
+  <p>Asked by <%= User.find(post.user_id).username %></p>
 </div>
 <% end %>
 

@@ -1,13 +1,12 @@
-<h1><%= @post.votes %><%= link_to content_tag(:span, "", class:"glyphicon glyphicon-arrow-up"), edit_post_path(@post, upvote:true) %>   <%= @post.title %></h1>
+<h2><%= @post.votes %><%= link_to content_tag(:span, "", class:"glyphicon glyphicon-arrow-up"), edit_post_path(@post, upvote:true) %>   <%= @post.title %></h2>
 
 <%= @post.content %><br>
 
-<br>
+<hr>
 
-<br>
-<h1>Answers</h1>
+<h2>Answers</h2>
 <% @post.comments.each do |comment| %>
-  <%= comment.content %>
+  <%= comment.content %> answered by <span class="user_answer"><%= comment.user.username %></span>
 <% end %>
 
 <br>
