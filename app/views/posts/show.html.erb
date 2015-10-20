@@ -1,27 +1,39 @@
-<h2><%= @post.votes %><%= link_to content_tag(:span, "", class:"glyphicon glyphicon-arrow-up"), edit_post_path(@post, upvote:true) %>   <%= @post.title %></h2>
-<p>Asked by <%= link_to @post.user.username, user_path(@post.user) %>
-</p>
+<span class="post-title"><%= @post.title %></span>
+
+
+<span class="post-author">asked by <%= link_to @post.user.username, user_path(@post.user) %></span>
 <br>
+<br>
+<div class="row">
+  <div class="col-md-1">
 
-<%= @post.content %><br>
+    <span class="upvote"><%= @post.votes %><%= link_to content_tag(:span, "", class:"glyphicon glyphicon-arrow-up"), edit_post_path(@post, upvote:true) %></span>
+  </div>
 
+  <div class="col-md-11">
+    <div class="post-content">
+      <%= @post.content %><br>
+    </div>
+  </div>
+</div>
+<br>
 <hr>
 <% if @post.comments.where(best: true).count > 0 %>
-  <h3>Best Answer:</h3>
+  <h3>Best Answer</h3>
+  <div class="post-content">
   <%= @post.comments.where(best: true).first.content %>
+</div>
 <% end %>
 
 <h3>All Answers</h3>
 <% @post.comments.each do |comment| %>
   <%= comment.content %>
   <br>answered by <span class="user_answer"><%= link_to comment.user.username, user_path(comment.user) %></span>
-  <br>
-  <br>
   <% if current_user == @post.user && @post.comments.where(best: true).count == 0 %>
-    <%= link_to "Best Answer", post_comment_path(@post, comment, best: true), method: :patch %>
-    <br>
-    <br>
+    || <%= link_to "Best Answer", post_comment_path(@post, comment, best: true), method: :patch %>
   <% end %>
+  <br>
+  <br>
 <% end %>
 
 <br>
