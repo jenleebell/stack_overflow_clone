@@ -6,9 +6,9 @@
 <% if current_user.admin %>
   <%= form_for @user do |f| %>
   <%= f.check_box("admin", {}, true) %>
-  <%= f.submit 'Make Admin', class:'btn btn-default' %>
+  <%= f.submit 'Make Admin', class:'btn btn-xs btn-primary' %>
   <% end %>
 <% end %>
 
 <br>
-<%= link_to "Delete Account", user_path(@user), :data => {:confirm => "Are you sure?", :method => "delete"}, class: "btn btn-default" %>
+<%= link_to "Delete Account", user_path(@user), :data => {:confirm => "Are you sure?", :method => "delete"}, class: "btn btn-danger" %>

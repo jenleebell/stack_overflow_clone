@@ -1,10 +1,15 @@
-<h2>Welcome <%= @user.username %></h2>
-<h4>Current email: <%= @user.email %></h4>
-<%= link_to "Edit Information", edit_user_path(@user) %>
+<% if current_user == @user %>
+  <h2>Welcome <%= @user.username %></h2>
+  <h4>Current email: <%= @user.email %></h4>
+  <%= link_to "Edit Information", edit_user_path(@user) %>
+<% else %>
+  <h2><%= @user.username %>'s Profile</h2>
+<% end %>
 <br>
 <br>
-<h4>All your questions:</h4>
+<h4>Questions asked:</h4>
 
 <% @user.posts.each do |post| %>
 <%= link_to post.title, post_path(post) %>
+<br>
 <% end %>
