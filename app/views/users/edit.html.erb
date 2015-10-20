@@ -3,10 +3,12 @@
 
 <br>
 <br>
-<h4>Make Admin</h4>
 <% if current_user.admin %>
   <%= form_for @user do |f| %>
   <%= f.check_box("admin", {}, true) %>
-  <%= f.submit %>
+  <%= f.submit 'Make Admin', class:'btn btn-default' %>
   <% end %>
 <% end %>
+
+<br>
+<%= link_to "Delete Account", user_path(@user), :data => {:confirm => "Are you sure?", :method => "delete"}, class: "btn btn-default" %>

@@ -17,14 +17,30 @@
         <li><%= link_to "Ask a Question", new_post_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <% if current_user %>
-          <li><%= link_to current_user.username, user_path(current_user) %></li>
-        <li><%= link_to "Log Out", session_path("current"), method: "delete" %></li>
+
+        <% if current_user && current_user.admin %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Your Account", user_path(current_user) %></li>
+            <li><%= link_to "User Management", users_path() %></li>
+            <li><%= link_to "Reporting", users_path() %></li>
+            <li><%= link_to "Log Out", session_path("current"), method: "delete" %></li>
+          </ul>
+        </li>
+
         <% else %>
 
-        <li><%= link_to "Sign Up", new_user_path %></li>
-          <li><%= link_to "Login", new_session_path %></li>
+          <% if current_user %>
+            <li><%= link_to current_user.username, user_path(current_user) %></li>
+          <li><%= link_to "Log Out", session_path("current"), method: "delete" %></li>
 
+          <% else %>
+
+          <li><%= link_to "Sign Up", new_user_path %></li>
+            <li><%= link_to "Login", new_session_path %></li>
+
+          <% end %>
         <% end %>
       </ul>
     </div>
