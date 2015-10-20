@@ -6,3 +6,8 @@
 <% @user.posts.each do |post| %>
 <%= link_to post.title, post_path(post) %>
 <% end %>
+<br><br>
+<% if current_user.admin %>
+  <h4>Administrator Links</h4>
+  <%= link_to "Admin Page", users_path %>
+<% end %>

@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+  before_filter :authorize_admin, only: :index
   def index
     @users = User.all
+    @todaysposts = Post.todays_posts
+    @numberofposts = Post.number_of_todays_posts
   end
 
   def new
