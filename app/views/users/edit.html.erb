@@ -1,0 +1,12 @@
+<h2>Update Information</h2>
+<%= render "form" %>
+
+<br>
+<br>
+<h4>Make Admin</h4>
+<% if current_user.admin %>
+  <%= form_for @user do |f| %>
+  <%= f.check_box("admin", {}, true) %>
+  <%= f.submit %>
+  <% end %>
+<% end %>
