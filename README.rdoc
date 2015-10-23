@@ -1,28 +1,50 @@
-== README
+# StackOverclone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##### Web app written in Rails that mimics StackOverflow
 
-Things you may want to cover:
+#### By Jennifer Lee Bell & Jake Glassman
 
-* Ruby version
+## Description
 
-* System dependencies
+You can sign up, ask questions, get answers. Upvote a question. Select the best answer from your question.
 
-* Configuration
+## Setup
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Open terminal
+* _`$ git clone https://github.com/jenleebell/stack_overflow_clone.git`_
+* _`$ cd stack_overflow_clone` to enter directory_
+* _`$ bundle` to install gems_
+* _`$ postgres` to start a postgres server_
+* _`$ rake db:create` to create the database_
+* _`$ rake db:migrate` to add table information_
+* _open new tab in terminal and run `$ rails server` in the project directory_
+* _go to `localhost:3000` in your favorite browser to open StackOverclone_
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Technologies Used
+
+Written in Rails
+
+### Legal
+
+Copyright (c) 2015 Jennifer Bell
+
+This software is licensed under the MIT license.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
